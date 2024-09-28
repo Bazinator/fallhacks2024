@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PlanetDisplay from './PlanetDisplay';
-import MessageTerminal from './MessageTerminal';
 import './PlanetInterface.css';
 
 function PlanetInterface() {
@@ -11,14 +10,12 @@ function PlanetInterface() {
   React.useEffect(() => {
     setSelectedPlanet({
       name: 'Mars',
-      image: require('../assets/planets/mars.png'),
     });
   }, []);
 
   return (
     <div className="planet-interface">
       <PlanetDisplay selectedPlanet={selectedPlanet} />
-      <MessageTerminal />
     </div>
   );
 }
