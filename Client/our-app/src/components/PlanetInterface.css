@@ -1,0 +1,9 @@
+.planet-interface {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url('../assets/space-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+  }
