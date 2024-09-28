@@ -7,52 +7,78 @@ function PlanetDisplay() {
 
   useEffect(() => {
     const storedPlanet = localStorage.getItem('selectedPlanet');
-    console.log(storedPlanet)
+    console.log('Stored Planet:', storedPlanet);
+
     if (storedPlanet) {
-      setSelectedPlanet(JSON.parse(storedPlanet));
+      setSelectedPlanet(storedPlanet);
     }
   }, []);
 
-  // Determine the center position
-  const centerX = 400; // Half of the width (assuming 800px width)
-  const centerY = 300; // Half of the height (assuming 600px height)
+  useEffect(() => {
+    console.log('Selected Planet State Updated:', selectedPlanet);
+  }, [selectedPlanet]);
 
-  // Calculate positions for planets
-  const planetPositions = planets.map((planet, index) => {
-    if (selectedPlanet && selectedPlanet.name === planet.name) {
-      // Position the selected planet at the center
-      return { x: centerX, y: centerY };
-    } else {
-      // Distribute other planets around the selected planet
-      const angle = ((index / (planets.length - 1)) * 2 * Math.PI) - Math.PI / 2; // Start from top
-      const radius = 200; // Distance from center
-      return {
-        x: centerX + radius * Math.cos(angle),
-        y: centerY + radius * Math.sin(angle),
-      };
-    }
+  const centerX = 400;
+  const centerY = 300;
+
+  // Exclude the selected planet
+  const otherPlanets = planets.filter(
+    (planet) => planet.name !== selectedPlanet
+  );
+
+  // Calculate positions for other planets
+  const otherPlanetsPositions = otherPlanets.map((planet, index) => {
+    const angle =
+      (index / otherPlanets.length) * 2 * Math.PI - Math.PI / 2;
+    const radius = 200;
+    return {
+      name: planet.name,
+      x: centerX + radius * Math.cos(angle),
+      y: centerY + radius * Math.sin(angle),
+    };
   });
+
+  // Include the selected planet
+  const planetPositions = [
+    { name: selectedPlanet, x: centerX, y: centerY },
+    ...otherPlanetsPositions,
+  ];
 
   return (
     <div className="planet-display">
-      {planets.map((planet, index) => {
-        const position = planetPositions[index];
-        return (
-          <div
-            key={planet.name}
-            className={`planet-item1 ${
-              selectedPlanet && selectedPlanet.name === planet.name ? 'selected' : ''
-            }`}
-            style={{
-              left: `${position.x - 10}px`, // Adjust for dot radius
-              top: `${position.y - 10}px`,
-            }}
-          >
-            <div className="planet-dot"></div>
-            <p>{planet.name}</p>
-          </div>
-        );
-      })}
+      {/* SVG for lines */}
+      <svg
+        className="planet-lines"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 800 600"
+      >
+        {otherPlanetsPositions.map((pos) => (
+          <line
+            key={pos.name}
+            x1={centerX}
+            y1={centerY}
+            x2={pos.x}
+            y2={pos.y}
+            className="planet-line"
+          />
+        ))}
+      </svg>
+
+      {planetPositions.map((pos) => (
+        <div
+          key={pos.name}
+          className={`planet-item1 ${
+            selectedPlanet === pos.name ? 'selected' : ''
+          }`}
+          style={{
+            left: `${pos.x}px`,
+            top: `${pos.y}px`,
+          }}
+        >
+          <div className="planet-dot"></div>
+          <p>{pos.name}</p>
+        </div>
+      ))}
     </div>
   );
 }

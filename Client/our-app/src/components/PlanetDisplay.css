@@ -33,3 +33,17 @@
   font-size: 14px;
   color: #fff;
 }
+.planet-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 600px;
+  pointer-events: none;
+}
+
+.planet-line {
+  stroke: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  stroke-width: 2;
+}
+
