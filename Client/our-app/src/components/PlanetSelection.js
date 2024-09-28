@@ -19,7 +19,7 @@ function PlanetSelection() {
 
   const handlePlanetSelect = (planet) => {
     setSelectedPlanet(planet);
-    localStorage.setItem('selectedPlanet', planet);
+    localStorage.setItem('selectedPlanet', JSON.stringify(planet));
     navigate('/planet'); // Redirect to the main interface
   };
 
