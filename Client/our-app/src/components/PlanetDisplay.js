@@ -2,7 +2,9 @@ import React from 'react';
 import './styles/PlanetsDisplay.css';
 import planets from '../data/planets';
 
-function PlanetsDisplay({ selectedPlanet }) {
+
+
+function PlanetDisplay({ selectedPlanet }) {
   return (
     <div className="planets-display">
       {planets.map((planet) => (
@@ -20,4 +22,5 @@ function PlanetsDisplay({ selectedPlanet }) {
   );
 }
 
-export default PlanetsDisplay;
+export default PlanetDisplay;
+

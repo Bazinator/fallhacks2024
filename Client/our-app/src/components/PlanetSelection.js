@@ -20,7 +20,7 @@ function PlanetSelection() {
   const handlePlanetSelect = (planet) => {
     setSelectedPlanet(planet);
     localStorage.setItem('selectedPlanet', planet);
-    navigate('/main'); // Redirect to the main interface
+    navigate('/planet'); // Redirect to the main interface
   };
 
   return (
