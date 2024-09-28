@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import PlanetSelection from './PlanetSelection';
+import PlanetSelection from './components/PlanetSelection';
 
 function App() {
   return (
