@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
+
 import './PlanetDisplay.css';
 import planets from '../data/planets';
 
@@ -45,6 +47,7 @@ function PlanetDisplay() {
   ];
 
   return (
+
     <div className="planet-display">
       {/* SVG for lines */}
       <svg
@@ -65,6 +68,7 @@ function PlanetDisplay() {
       </svg>
 
       {planetPositions.map((pos) => (
+
         <div
           key={pos.name}
           className={`planet-item1 ${

@@ -20,3 +20,75 @@
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
   }
+
+  /* Message Input Form */
+.message-input-form {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .message-input-form input {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .message-input-form button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+  
+  /* Messages Container */
+  .messages-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  /* Message Styles */
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .message.sent {
+    text-align: right;
+  }
+  
+  .message.received {
+    text-align: left;
+  }
+  
+  .message p {
+    display: inline-block;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+  }
+  
+  .message.sent p {
+    background-color: #dcf8c6;
+  }
+  
+  .timestamp {
+    display: block;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .sender {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .message-status {
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* Optional: Disable input when sending */
+  .message-input-form input:disabled,
+  .message-input-form button:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+  
