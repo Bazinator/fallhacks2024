@@ -1,12 +1,12 @@
 import React from 'react';
-import './styles/PlanetsDisplay.css';
+import './PlanetDisplay.css';
 import planets from '../data/planets';
 
 
 
 function PlanetDisplay({ selectedPlanet }) {
   return (
-    <div className="planets-display">
+    <div className="all-planets-display">
       {planets.map((planet) => (
         <div
           key={planet.name}

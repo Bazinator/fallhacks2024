@@ -1,10 +1,24 @@
-.planet-display {
-    text-align: center;
-    color: white;
-  }
-  
-  .planet-display img {
-    max-width: 200px;
-    height: auto;
-    margin-top: 20px;
-  }
+.all-planets-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.planet-item {
+  margin: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.planet-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.planet-item.selected img {
+  border: 2px solid yellow;
+  border-radius: 50%;
+}
