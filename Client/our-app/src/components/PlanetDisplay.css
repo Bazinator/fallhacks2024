@@ -1,0 +1,10 @@
+.planet-display {
+    text-align: center;
+    color: white;
+  }
+  
+  .planet-display img {
+    max-width: 200px;
+    height: auto;
+    margin-top: 20px;
+  }
