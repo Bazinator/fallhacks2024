@@ -1,6 +1,8 @@
 import React from 'react';
 import './PlanetDisplay.css';
 
+
+
 function PlanetDisplay({ selectedPlanet }) {
   return (
     <div className="planet-display">
@@ -15,3 +17,6 @@ function PlanetDisplay({ selectedPlanet }) {
     </div>
   );
 }
+
+
+export default PlanetDisplay;

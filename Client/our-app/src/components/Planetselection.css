@@ -1,6 +1,6 @@
 
 .imagecontainer {
-    background-image: url('assets/starrynightbg.jpg');
+    background-image: url('../assets/starrynightbg.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
