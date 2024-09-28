@@ -1,3 +1,14 @@
+
+.imagecontainer {
+    background-image: url('assets/starrynightbg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    color: rgb(255, 255, 255);
+}
+
+
 .planet-selection {
     text-align: center;
     padding: 20px;
@@ -5,11 +16,19 @@
 
 
 .planet-selection p {
-    margin-left: 20px;
-    margin-right: 20px;
     padding-left: 100px;
     padding-right: 100px;
     font-size: 18px
+}
+
+.textbox {
+    display: block;
+    z-index: 1;
+    margin-right: 70px;
+    margin-left: 70px;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.696);
+    padding: 20px;
 }
   .planet-grid {
     display: flex;
@@ -30,7 +49,7 @@
   
   .planet-item:hover {
     transform: scale(1.05);
-    background-color: #f0f0f0;
+    background-color: #171717ba;
   }
   
   .planet-icon {
