@@ -1,11 +1,13 @@
-import React from 'react';
-import PlanetInterface from './components/PlanetInterface.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PlanetSelection from './PlanetSelection';
 
 function App() {
   return (
-    <div className="App">
-      <PlanetInterface />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PlanetSelection />} />
+      </Routes>
+    </Router>
   );
 }
 
