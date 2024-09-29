@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PlanetDisplay from './PlanetDisplay';
-import './PlanetInterface.css';
+import ChatInterface from './ChatInterface';
 
-function PlanetInterface() {
-  const [selectedPlanet, setSelectedPlanet] = useState(null);
-
-  // For testing, you can set a default planet
-  // Remove or modify this in your actual implementation
-  React.useEffect(() => {
-    setSelectedPlanet({
-      name: 'Mars',
-    });
-  }, []);
-
+const App = () => {
   return (
-    <div className="planet-interface">
-      <PlanetDisplay selectedPlanet={selectedPlanet} />
+    <div>
+      {/* Render both components on the same screen */}
+      <div className='planet-interface'>
+        <PlanetDisplay />
+        <ChatInterface />
+      </div>
     </div>
   );
-}
+};
 
-export default PlanetInterface;
+export default App;
