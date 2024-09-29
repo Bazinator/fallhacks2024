@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PlanetDisplay from './PlanetDisplay';
 import ChatInterface from './ChatInterface';
+import './PlanetInterface.css'; 
 
-const App = () => {
+
+
+const PlanetInterface = () => {
   return (
-    <div>
-      {/* Render both components on the same screen */}
-      <div className='planet-interface'>
-        <PlanetDisplay />
-        <ChatInterface />
-      </div>
+    <div className="planet-interface">
+      <PlanetDisplay />
+      <ChatInterface />
     </div>
-  );
-};
 
-export default App;
+  );
+
+}
+
+export default PlanetInterface;
