@@ -1,0 +1,39 @@
+/* ChatInterface.css */
+
+.message-animation {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    border-radius: 50%;
+    animation: travel var(--duration) linear forwards;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes travel {
+    from {
+      transform: translate(var(--startX), var(--startY));
+      opacity: 1;
+    }
+    to {
+      transform: translate(calc(var(--endX) - var(--startX)), calc(var(--endY) - var(--startY)));
+      opacity: 1;
+    }
+  }
+  
+  /* Blinking effect */
+  .message-animation {
+    animation-name: travel, blink;
+    animation-duration: var(--duration), 1s;
+    animation-timing-function: linear, steps(1, start);
+    animation-iteration-count: 1, infinite;
+  }
+  
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
