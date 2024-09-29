@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import MessageInput from './MessageInput';
-import { calculateDistanceBetweenPlanets, calculateTravelTime } from './distances';
+// ChatInterface.js
 
-const ChatInterface = ({ originPlanet, destinationPlanet }) => {
+import React, { useState, useEffect } from 'react';
+import MessageInput from './MessageInput';
+
+const ChatInterface = ({ originPlanet, destinationPlanet, onSendMessage, isSending }) => {
   const [messages, setMessages] = useState([]);
-  const [isSending, setIsSending] = useState(false);
 
   const handleSendMessage = (messageText) => {
-    setIsSending(true);
-
-    // Calculate distance and travel time
-    const distance = calculateDistanceBetweenPlanets(originPlanet, destinationPlanet);
-    const travelTime = calculateTravelTime(distance); // in seconds
+    if (!originPlanet || !destinationPlanet) {
+      alert('Please select both origin and destination planets.');
+      return;
+    }
 
     // Add the message to the message log with status 'sending'
     const newMessage = {
@@ -23,21 +22,26 @@ const ChatInterface = ({ originPlanet, destinationPlanet }) => {
 
     setMessages((prevMessages) => [...prevMessages, newMessage]);
 
-    // Simulate message travel and update status
-    setTimeout(() => {
+    // Call the onSendMessage function to handle the message sending logic
+    onSendMessage(messageText);
+  };
+
+  // Update message status when isSending changes
+  useEffect(() => {
+    if (!isSending && messages.length > 0) {
+      // Update the status of the last message to 'delivered'
       setMessages((prevMessages) =>
-        prevMessages.map((msg) =>
-          msg === newMessage ? { ...msg, status: 'delivered' } : msg
+        prevMessages.map((msg, index) =>
+          index === prevMessages.length - 1 ? { ...msg, status: 'delivered' } : msg
         )
       );
-      setIsSending(false);
-    }, travelTime * 1000); // Convert seconds to milliseconds
-  };
+    }
+  }, [isSending]);
 
   return (
     <div className="chat-interface">
       <h2>
-        From {originPlanet} to {destinationPlanet}
+        From {originPlanet || '...'} to {destinationPlanet || '...'}
       </h2>
       <div className="messages-container">
         {messages.map((message, index) => (
@@ -53,7 +57,9 @@ const ChatInterface = ({ originPlanet, destinationPlanet }) => {
             </span>
             <span className="sender">From {message.sender}</span>
             {message.status === 'sending' && <span className="status-indicator"> (Sending...)</span>}
-            {message.status === 'delivered' && <span className="status-indicator"> (Delivered)</span>}
+            {message.status === 'delivered' && (
+              <span className="status-indicator"> (Delivered)</span>
+            )}
           </div>
         ))}
       </div>
@@ -63,3 +69,4 @@ const ChatInterface = ({ originPlanet, destinationPlanet }) => {
 };
 
 export default ChatInterface;
+

@@ -1,39 +1,69 @@
-/* ChatInterface.css */
 
-.message-animation {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: yellow;
-    border-radius: 50%;
-    animation: travel var(--duration) linear forwards;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+.chat-interface {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
   }
   
-  @keyframes travel {
-    from {
-      transform: translate(var(--startX), var(--startY));
-      opacity: 1;
-    }
-    to {
-      transform: translate(calc(var(--endX) - var(--startX)), calc(var(--endY) - var(--startY)));
-      opacity: 1;
-    }
+  .message-log {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
   }
   
-  /* Blinking effect */
-  .message-animation {
-    animation-name: travel, blink;
-    animation-duration: var(--duration), 1s;
-    animation-timing-function: linear, steps(1, start);
-    animation-iteration-count: 1, infinite;
+  .message {
+    margin-bottom: 15px;
   }
   
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+  .message.sent {
+    text-align: right;
   }
+  
+  .message.received {
+    text-align: left;
+  }
+  
+  .message.sending {
+    font-style: italic;
+    color: #555;
+  }
+  
+  .message p {
+    background-color: #f1f1f1;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .message.sent p {
+    background-color: #dcf8c6;
+  }
+  
+  .timestamp {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+  }
+  
+  .message-input-form {
+    display: flex;
+  }
+  
+  .message-input-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .message-input-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 5px;
+
   
