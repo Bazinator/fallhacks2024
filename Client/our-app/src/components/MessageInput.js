@@ -1,45 +1,32 @@
+// MessageInput.js
+
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
-const MessageInput = ({ onSend }) => {
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
-
-  const handleChange = (e) => {
-    setMessage(e.target.value);
-    setError(''); // Clear error when user types
-  };
+const MessageInput = ({ onSend, disabled }) => {
+  const [messageText, setMessageText] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (message.trim() === '') {
-      setError('Please enter a message before sending.');
-      return;
+    if (messageText.trim() !== '') {
+      onSend(messageText.trim());
+      setMessageText('');
     }
-
-    onSend(message.trim());
-    setMessage(''); // Clear the input field
   };
 
   return (
     <form onSubmit={handleSubmit} className="message-input-form">
       <input
         type="text"
-        value={message}
-        onChange={handleChange}
+        value={messageText}
+        onChange={(e) => setMessageText(e.target.value)}
+        disabled={disabled}
         placeholder="Type your message..."
-        aria-label="Message Input"
-        required
       />
-      <button type="submit">Send</button>
-      {error && <div className="error-message">{error}</div>}
+      <button type="submit" disabled={disabled}>
+        Send
+      </button>
     </form>
   );
-};
-
-MessageInput.propTypes = {
-  onSend: PropTypes.func.isRequired,
 };
 
 export default MessageInput;
