@@ -31,47 +31,53 @@ To get this project up and running locally, follow these steps:
    ```bash
    git clone https://github.com/yourusername/fallhacks2024.git
 Navigate to the project directory:
-
-bash
-Copy code
+```bash
 cd fallhacks2024
 cd Client
 cd our-app
+```
 Install dependencies:
 
-bash
+```bash
 Copy code
 npm install
+```
 Start the development server:
 
-bash
-Copy code
+```bash
 npm start
+```
 Once the server is up, open your browser and head to http://localhost:3000 to start exploring the galaxy!
 
-Features
-Implemented Features:
+###Features
+##Implemented Features:
 🌍 Planet Selection: Users can choose their home base planet when they log in.
 💬 Messaging System: Send messages across planets (functionality is still basic).
-Planned Features:
+
+
+##Planned Features:
 🔒 User Authentication: Secure login system for users.
 💸 Credit System: Users can pay for more credits to send additional messages.
 🌠 Enhanced UI: Improve user experience with better visual elements.
 🌌 Expanded Universe: More planets, better interactions between users across planets.
 💡 Message Storage: Persist messages across sessions and users.
-Technologies Used
+
+
+##Technologies Used
 Frontend: React.js
 Backend: (Planned for future updates)
 Database: (Planned for future updates)
 Version Control: Git & GitHub
-Known Issues
+
+##Known Issues
 Missing user authentication.
 No animation for sending message.
 No displaying of distance or time calculation.
 Credits functionality is not fully implemented.
 Messages do not persist across sessions yet.
 UI is still in its early stages of development.
-Contributors
+
+###Contributors
 Michael Bazett - First Year SOSY Student at Simon Fraser University
 Jayden Troung - First Year CS Student at Simon Fraser UNiversity
 Acknowledgements
